@@ -12,4 +12,3 @@
 ## เครื่องมือ
 
 - [vscode](https://code.visualstudio.com/)
-- [Xampp 7.4.33](https://www.apachefriends.org/download.html)
