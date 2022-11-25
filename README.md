@@ -11,4 +11,4 @@
 
 ## เครื่องมือ
 
-- [vscode](https://code.visualstudio.com/)
+- [VS Code](https://code.visualstudio.com/)
