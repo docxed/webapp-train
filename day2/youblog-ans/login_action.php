@@ -16,16 +16,14 @@
             echo "alert('ไม่พบข้อมูลในระบบ');";
             echo "window.location.href='index.php';";
             echo "</script>";
-        }
-        if ($password != $row_users['password']) {
+        } else if ($password != $row_users['password']) {
             echo "<script>";
             echo "alert('รหัสผ่านไม่ถูกต้อง');";
             echo "window.location.href='index.php';";
             echo "</script>";
+        } else {
+            $_SESSION['email'] = $row_users['email'];
+            $_SESSION['role'] = $row_users['role'];
+            header("location: home.php");
         }
-
-        $_SESSION['email'] = $row_users['email'];
-        $_SESSION['role'] = $row_users['role'];
-        header("location: home.php");
-
     }
