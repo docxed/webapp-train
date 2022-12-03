@@ -35,6 +35,15 @@ $comments = $comments_stmt->fetchAll();
                     <?= $post['post_content']; ?>
                 </p>
                 <?php
+                if ($post['post_image']) {
+                ?>
+                    <p class="text-center">
+                        <img src="./uploads/<?= $post['post_image']; ?>" alt="<?= $post['post_image']; ?>" class="img-fluid">
+                    </p>
+                <?php
+                }
+                ?>
+                <?php
                 if ($post['user_id'] == $_SESSION['myId']) {
                 ?>
                     <div class="text-end">

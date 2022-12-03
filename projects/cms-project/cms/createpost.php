@@ -11,7 +11,7 @@ $categories = $categories_stmt->fetchAll();
 <div class="container my-5">
     <p class="h2">สร้างโพสต์ใหม่</p>
     <hr><br>
-    <form action="post_actions.php" method="POST">
+    <form action="post_actions.php" method="POST" enctype="multipart/form-data">
         <div class="mb-3">
             <label for="title" class="form-label">หัวข้อ</label>
             <input name="title" type="text" class="form-control" placeholder="หัวข้อ" maxlength="255" required>
@@ -32,6 +32,22 @@ $categories = $categories_stmt->fetchAll();
                 }
                 ?>
             </datalist>
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">รูปภาพ</label>
+            <input name="image" id="imageInput" type="file" class="form-control" accept=".jpg, .jpeg, .png" required>
+            <img id="previewImage" class="mt-3 w-40" alt="">
+            <script>
+                let imageInput = document.getElementById("imageInput")
+                let previewImage = document.getElementById("previewImage")
+
+                imageInput.onchange = evt => {
+                    const [file] = imageInput.files
+                    if (file) {
+                        previewImage.src = URL.createObjectURL(file)
+                    }
+                }
+            </script>
         </div>
         <div class="mb-3">
             <input name="userId" type="hidden" value="<?= $_SESSION['myId']; ?>">
